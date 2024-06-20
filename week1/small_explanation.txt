@@ -1,1 +1,3 @@
 In the first task we can give weight (aka End Effector) any format, weight, etc. that we need for the task.
+
+In 2nd task I couldn't figure out how to connect everything so it would work so I'll redo it later and send it here (after submition deadline, not for grading)
