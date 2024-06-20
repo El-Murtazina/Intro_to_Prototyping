@@ -1,1 +1,1 @@
-
+In the first task we can give weight (aka End Effector) any format, weight, etc. that we need for the task.
