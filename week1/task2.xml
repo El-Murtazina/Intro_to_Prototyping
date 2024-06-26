@@ -5,50 +5,56 @@
 
     <option gravity="0 0 -9.81" />
 
+    <actuator>
+        <motor gear="100" joint="hinge_2_l" name="yaw_motor_left" ctrlrange="-.02 .02" ctrllimited="true"/>
+        <motor gear="100" joint="hinge_2_r" name="yaw_motor_right" ctrlrange="-.02 .02" ctrllimited="true"/>
+    </actuator>
+
     <worldbody>
         <light name="top" pos="0 0 1"/>
         <geom type="plane" pos="-0.5 -0.5 0" size="1 1 0.1"  rgba="0 .9 0 1"/>
-        <body name="motor_cent" euler="0 0 0">
-            <geom type="cylinder" fromto="0.185 -.0685 0.5 0.185 -.0915 0.5" size=".018" mass="0.065" rgba=".1 .1 .1 .8"/>
-            <joint name="hinge_cent" pos="0.185 -.08 0.5" axis="0 1 0" />
-            <body name="link_1_left" euler="0 0 0">
-                <geom name="link1_l" type="box" pos="0.185 -.08 0.432" size=".005 .005 .05" mass="0.02" rgba="0.2 0.5 0.2 1"/>
+        <body name="motor2_left" euler="0 0 0">
+            <geom type="cylinder" fromto="0.135 -.0915 0.228 0.135 -.0685 0.228" size=".018" mass="0.065" rgba=".5 .1 .1 .8"/>
+            <joint name="hinge_2_l" pos="0.135 -.08 0.228" axis="0 1 0" />
+            <body name="link_2_left" euler="0 0 0">
+                <geom name="link2_l" type="box" pos="0.135 -.08 0.296" size=".005 .005 .05" mass="0.02" rgba="0.2 0.5 0.2 1"/>
                 <body name="motor1_left" euler="0 0 0">
-                    <geom type="cylinder" fromto="0.185 -.0915 0.364 0.185 -.0685 0.364" size=".018" mass="0.065" rgba=".1 .1 .1 .8"/>
-                    <joint name="hinge_1_l" pos="0.185 -.08 0.364" axis="0 1 0" />
-                    <body name="link_2_left" euler="0 0 0">
-                        <geom name="link2_l" type="box" pos="0.185 -.08 0.296" size=".005 .005 .05" mass="0.02" rgba="0.2 0.5 0.2 1"/>
-                        <body name="motor2_left" euler="0 0 0">
-                            <geom type="cylinder" fromto="0.135 -.0915 0.228 0.135 -.0685 0.228" size=".018" mass="0.065" rgba=".1 .1 .1 .8"/>
-                            <joint name="hinge_2_l" pos="0.135 -.08 0.228" axis="0 1 0" />
-                        </body>
+                    <geom type="cylinder" fromto="0.135 -.0915 0.364 0.135 -.0685 0.364" size=".018" mass="0.065" rgba=".1 .1 .1 .8"/>
+                    <joint name="hinge_1_l" pos="0.135 -.08 0.364" axis="0 1 0" />
+                    <body name="link_1_left" euler="0 0 0">
+                        <geom name="link1_l" type="box" pos="0.185 -.08 0.414" size=".005 .005 .068" mass="0.02" axisangle="0 1 0 42.67" rgba="0.2 0.5 0.2 1"/>
+                        <body name="motor_cent_left" euler="0 0 0">
+                             <geom type="cylinder" fromto="0.235 -.0915 0.464 0.235 -.0685 0.464" size=".018" mass="0.065" rgba=".1 .1 .5 .8"/>
+                             <joint name="hinge_3_l" pos="0.235 -.08 0.464" axis="0 1 0" />
+                         </body>
                     </body>
                 </body>
             </body>
-            <body name="link_1_right" euler="0 0 0">
-                <geom name="link1_r" type="box" pos="0.185 -.08 0.432" size=".005 .005 .05" mass="0.02" rgba="0.2 0.5 0.2 1"/>
+        </body>
+        <body name="motor2_right" euler="0 0 0">
+            <geom type="cylinder" fromto="0.335 -.0915 0.228 0.335 -.0685 0.228" size=".018" mass="0.065" rgba=".1 .1 .5 .8"/>
+            <joint name="hinge_2_r" pos="0.335 -.08 0.228" axis="0 1 0" />
+            <body name="link_2_right" euler="0 0 0">
+                <geom name="link2_r" type="box" pos="0.335 -.08 0.296" size=".005 .005 .05" mass="0.02" rgba="0.2 0.5 0.2 1"/>
                 <body name="motor1_right" euler="0 0 0">
-                    <geom type="cylinder" fromto="0.185 -.0915 0.364 0.185 -.0685 0.364" size=".018" mass="0.065" rgba=".1 .1 .1 .8"/>
-                    <joint name="hinge_1_r" pos="0.185 -.08 0.364" axis="0 1 0" />
-                    <body name="link_2_right" euler="0 0 0">
-                        <geom name="link2_r" type="box" pos="0.185 -.08 0.296" size=".005 .005 .05" mass="0.02" rgba="0.2 0.5 0.2 1"/>
-                        <body name="motor2_right" euler="0 0 0">
-                            <geom type="cylinder" fromto="0.235 -.0915 0.228 0.235 -.0685 0.228" size=".018" mass="0.065" rgba=".1 .1 .1 .8"/>
-                            <joint name="hinge_2_r" pos="0.235 -.08 0.228" axis="0 1 0" />
-                        </body>
+                    <geom type="cylinder" fromto="0.335 -.0915 0.364 0.335 -.0685 0.364" size=".018" mass="0.065" rgba=".1 .1 .1 .8"/>
+                    <joint name="hinge_1_r" pos="0.335 -.08 0.364" axis="0 1 0" />
+                     <body name="link_1_right" euler="0 0 0">
+                         <geom name="link1_r" type="box" pos="0.285 -.08 0.414" size=".005 .005 .068" mass="0.02" axisangle="0 1 0 -42.67" rgba="0.2 0.5 0.2 1"/>
+                         <body name="motor_cent_right" euler="0 0 0">
+                             <geom type="cylinder" fromto="0.235 -.0915 0.464 0.235 -.0685 0.464" size=".018" mass="0.065" rgba=".1 .1 .5 .8"/>
+                             <joint name="hinge_3_r" pos="0.235 -.08 0.464" axis="0 1 0" />
+                         </body>
                     </body>
                 </body>
             </body>
         </body>
     </worldbody>
     <contact>
-        <exclude body1="motor2_right" body2="link_2_right"/>
-        <exclude body1="motor2_right" body2="motor1_right"/>
-        <exclude body1="motor2_right" body2="link_1_right"/>
-        <exclude body1="motor2_left" body2="link_2_left"/>
-        <exclude body1="motor2_left" body2="motor1_left"/>
-        <exclude body1="motor2_left" body2="link_1_left"/>
-        <exclude body1="motor2_right" body2="motor_cent"/>
-        <exclude body1="motor2_left" body2="motor_cent"/>
+        <exclude body1="motor_cent_left" body2="motor_cent_right"/>
     </contact>
+
+    <equality>
+        <connect name="kinematic_link" active="true" body1="motor_cent_left" body2="motor_cent_right" anchor="0.235 -0.08 0.464" />
+    </equality>
 </mujoco>
