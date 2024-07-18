@@ -1,0 +1,1 @@
+the \Bullet_URDF_Exporter doesn't want to work. we couldnt fugure out why. photos attached.
