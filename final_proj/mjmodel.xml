@@ -1,0 +1,90 @@
+<mujoco model="project_fin">
+  <compiler angle="radian" meshdir="meshes/"/>
+  <asset>
+    <mesh name="base_link" file="base_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="Component21" file="Component21.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="Component11" file="Component11.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="Component31" file="Component31.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="Component41" file="Component41.stl" scale="0.001 0.001 0.001"/>
+  </asset>
+  <actuator>
+    <motor gear="100" joint="Revolute_1" name="down" ctrlrange="-.02 .02" ctrllimited="true"/>
+    <motor gear="100" joint="hinge_1" name="left" ctrlrange="-.02 .02" ctrllimited="true"/>
+  </actuator>
+
+  <worldbody>
+    <light name="top" pos="0 0 1"/>
+    <geom type="plane" pos="-0.5 -0.5 -.07" size="1 1 0.1"  rgba="0 .9 0 1"/>
+    <body name="base_link">
+      <inertial pos="0.1 0 -0.0576704" quat="0.5 0.5 -0.5 0.5" mass="0.065" diaginertia="1.27233e-05 6.65412e-06 6.65412e-06"/>
+      <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="base_link"/>
+      <geom type="mesh" mesh="base_link"/>
+      <body name="Component21" pos="0.1 0 -0.05267">
+        <inertial pos="0.0588451 0 0.0616026" quat="0.691506 0.147716 0.147716 0.691506" mass="0.0212922" diaginertia="6.14341e-05 5.79085e-05 4.2442e-06"/>
+        <joint name="Revolute_1" pos="0 0 0" axis="0 0 1" range="-3.14 3.14"/>
+        <geom pos="-0.1 0 0.05267" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="Component21"/>
+        <geom pos="-0.1 0 0.05267" type="mesh" mesh="Component21"/>
+        <body name="Component11" pos="0.077 0 0.152692">
+          <inertial pos="-0.0594068 -1.45328e-07 0.0167261" quat="0.650926 0.276211 0.276204 0.650934" mass="0.0620248" diaginertia="0.000101806 6.65469e-05 3.72748e-05"/>
+          <joint name="Revolute_2" pos="0 0 0" axis="-1 0 0" range="-3.14 3.14"/>
+          <geom pos="-0.177 0 -0.100022" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="Component11"/>
+          <geom pos="-0.177 0 -0.100022" type="mesh" mesh="Component11"/>
+          <body name="Component31" pos="-0.07653 -3.4e-05 0.076735">
+            <inertial pos="-1.88994e-05 0.0386617 -0.0238904" quat="0.934373 0.356297 0.000359824 -0.000137231" mass="0.0107402" diaginertia="8.17471e-06 7.90772e-06 6.2555e-07"/>
+            <joint name="Revolute_3" pos="0 0 0" axis="0 0 1" range="-3.14 3.14"/>
+            <geom pos="-0.10047 3.4e-05 -0.176757" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="Component31"/>
+            <geom pos="-0.10047 3.4e-05 -0.176757" type="mesh" mesh="Component31"/>
+            <body name="Component41" pos="-4.4e-05 0.0618 -0.056798">
+              <inertial pos="-0.0404532 -0.0233957 3.08638e-05" quat="0.650399 0.278148 -0.649898 0.277934" mass="0.0108805" diaginertia="8.91279e-06 8.61707e-06 6.74262e-07"/>
+              <joint name="Revolute_4" pos="0 0 0" axis="0 1 0" range="-3.14 3.14"/>
+              <geom pos="-0.100426 -0.061766 -0.119959" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="Component41"/>
+              <geom pos="-0.100426 -0.061766 -0.119959" type="mesh" mesh="Component41"/>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <body name="motor1" euler="0 0 0">
+      <geom type="cylinder" fromto="0.035 0 0.12 0.012 0 0.12" size=".018" mass="0.065" rgba="1 1 1 .8"/>
+      <joint name="hinge_1" pos="0.0235 0 0.12" axis="1 0 0" range="-3.14 3.14"/>
+      <body name="addit" euler="0 0 0">
+        <geom type="cylinder" fromto="0.035 0 0.12 0.042 0 0.12" size=".004" mass="0.005" rgba="1 1 1 .8"/>
+      </body>
+    </body>
+  </worldbody>
+
+  <contact>
+    <exclude body1="world" body2="base_link"/>
+    <exclude body1="world" body2="Component21"/>
+    <exclude body1="world" body2="Component11"/>
+    <exclude body1="world" body2="Component31"/>
+    <exclude body1="world" body2="Component41"/>
+    <exclude body1="world" body2="motor1"/>
+    <exclude body1="world" body2="addit"/>
+    <exclude body1="base_link" body2="Component21"/>
+    <exclude body1="base_link" body2="Component11"/>
+    <exclude body1="base_link" body2="Component31"/>
+    <exclude body1="base_link" body2="Component41"/>
+    <exclude body1="base_link" body2="motor1"/>
+    <exclude body1="base_link" body2="addit"/>
+    <exclude body1="Component21" body2="Component11"/>
+    <exclude body1="Component21" body2="Component31"/>
+    <exclude body1="Component21" body2="Component41"/>
+    <exclude body1="Component21" body2="motor1"/>
+    <exclude body1="Component21" body2="addit"/>
+    <exclude body1="Component11" body2="Component31"/>
+    <exclude body1="Component11" body2="Component41"/>
+    <exclude body1="Component11" body2="motor1"/>
+    <exclude body1="Component11" body2="addit"/>
+    <exclude body1="Component31" body2="Component41"/>
+    <exclude body1="Component31" body2="motor1"/>
+    <exclude body1="Component31" body2="addit"/>
+    <exclude body1="Component41" body2="motor1"/>
+    <exclude body1="Component41" body2="addit"/>
+    <exclude body1="motor1" body2="addit"/>
+  </contact>
+
+  <equality>
+    <connect name="kinematic_link" active="true" body2="Component41" body1="addit" anchor="0.035 0 0.12" />
+  </equality>
+</mujoco>
